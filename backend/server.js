@@ -13,13 +13,13 @@ app.use(express.json());
 // Routes
 app.use("/api/students", studentRoutes);
 
-// Connect MongoDB
+// MongoDB Connection
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log("MongoDB Error:", err));
+  .catch((err) => console.log("Mongo Error:", err));
 
-// PORT fix for Render
+// PORT handling for Render
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
